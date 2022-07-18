@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rebecca.owens\\source\\repos\\HackathonBackend\\HackathonBackend\\HackathonBackend.csproj": {}
+    "C:\\repos\\Hackathon\\HackathonBackend\\HackathonBackend\\HackathonBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rebecca.owens\\source\\repos\\HackathonBackend\\HackathonBackend\\HackathonBackend.csproj": {
+    "C:\\repos\\Hackathon\\HackathonBackend\\HackathonBackend\\HackathonBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rebecca.owens\\source\\repos\\HackathonBackend\\HackathonBackend\\HackathonBackend.csproj",
+        "projectUniqueName": "C:\\repos\\Hackathon\\HackathonBackend\\HackathonBackend\\HackathonBackend.csproj",
         "projectName": "HackathonBackend",
-        "projectPath": "C:\\Users\\rebecca.owens\\source\\repos\\HackathonBackend\\HackathonBackend\\HackathonBackend.csproj",
+        "projectPath": "C:\\repos\\Hackathon\\HackathonBackend\\HackathonBackend\\HackathonBackend.csproj",
         "packagesPath": "C:\\Users\\rebecca.owens\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rebecca.owens\\source\\repos\\HackathonBackend\\HackathonBackend\\obj\\",
+        "outputPath": "C:\\repos\\Hackathon\\HackathonBackend\\HackathonBackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\rebecca.owens\\AppData\\Roaming\\NuGet\\NuGet.Config",

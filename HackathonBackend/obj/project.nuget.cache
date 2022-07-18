@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f/TvSRK+VHNiJGRpdhbc+l8C6WK/iZ5QajCcFW+2FMC1pLg9N5uhd2Q4i4O9dcI2Oy57bboxDLfpqigjjWnycQ==",
+  "dgSpecHash": "nnF01f0KLz35jQOGc6/SigGLZsjh32m4Y4kjeMrmLYOSWikChXOaZo1Rx6spbMuLBYy1ZUHIaFmRLnRIvWuRug==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rebecca.owens\\source\\repos\\HackathonBackend\\HackathonBackend\\HackathonBackend.csproj",
+  "projectFilePath": "C:\\repos\\Hackathon\\HackathonBackend\\HackathonBackend\\HackathonBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rebecca.owens\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.7\\microsoft.entityframeworkcore.6.0.7.nupkg.sha512",
     "C:\\Users\\rebecca.owens\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.7\\microsoft.entityframeworkcore.abstractions.6.0.7.nupkg.sha512",
