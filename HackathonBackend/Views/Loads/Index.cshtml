@@ -1,0 +1,83 @@
+﻿@model IEnumerable<HackathonBackend.Models.Load>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PONumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarrierId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarrierName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DriverId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DriverName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DriverCellNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dispatcher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lane)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PONumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarrierId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarrierName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DriverId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DriverName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DriverCellNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dispatcher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lane)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

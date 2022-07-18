@@ -1,0 +1,74 @@
+﻿@model HackathonBackend.Models.Load
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Load</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="PONumber" class="control-label"></label>
+                <input asp-for="PONumber" class="form-control" />
+                <span asp-validation-for="PONumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarrierId" class="control-label"></label>
+                <input asp-for="CarrierId" class="form-control" />
+                <span asp-validation-for="CarrierId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CarrierName" class="control-label"></label>
+                <input asp-for="CarrierName" class="form-control" />
+                <span asp-validation-for="CarrierName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DriverId" class="control-label"></label>
+                <input asp-for="DriverId" class="form-control" />
+                <span asp-validation-for="DriverId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DriverName" class="control-label"></label>
+                <input asp-for="DriverName" class="form-control" />
+                <span asp-validation-for="DriverName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DriverCellNumber" class="control-label"></label>
+                <input asp-for="DriverCellNumber" class="form-control" />
+                <span asp-validation-for="DriverCellNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dispatcher" class="control-label"></label>
+                <input asp-for="Dispatcher" class="form-control" />
+                <span asp-validation-for="Dispatcher" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lane" class="control-label"></label>
+                <input asp-for="Lane" class="form-control" />
+                <span asp-validation-for="Lane" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customer" class="control-label"></label>
+                <input asp-for="Customer" class="form-control" />
+                <span asp-validation-for="Customer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

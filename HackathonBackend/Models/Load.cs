@@ -1,5 +1,9 @@
-﻿namespace HackathonBackend.Models
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
+namespace HackathonBackend.Models
 {
+    [Index(nameof(PONumber), IsUnique = true)]
     public class Load
     {
         public int Id { get; set; }
