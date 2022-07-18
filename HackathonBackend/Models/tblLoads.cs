@@ -1,7 +1,10 @@
-﻿namespace HackathonBackend.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace HackathonBackend.Models
 {
-    public class Loads
+    public class tblLoads
     {
+        [Key]
         public int Id { get; set; }
 
 
@@ -14,11 +17,11 @@
         public string Customer { get; set; } = "";
 
         public int CarrierId { get; set; }
-        public virtual Carrier? Carrier { get; set; } = null!;
+        public virtual tblCarrier? Carrier { get; set; } = null!;
 
 
-        public List<Pickups> Pickups { get; set; } 
-        public List<Drops> Drops { get; set; }
+        public List<tblPickups> Pickups { get; set; } 
+        public List<tblDrops> Drops { get; set; }
 
     }
 }

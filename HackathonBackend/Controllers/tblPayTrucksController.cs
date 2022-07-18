@@ -11,55 +11,55 @@ namespace HackathonBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PickupsController : ControllerBase
+    public class tblPayTrucksController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public PickupsController(AppDbContext context)
+        public tblPayTrucksController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Pickups
+        // GET: api/tblPayTrucks
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Pickups>>> GetPickups()
+        public async Task<ActionResult<IEnumerable<tblPayTruck>>> GetPayTruck()
         {
-          if (_context.Pickups == null)
+          if (_context.PayTruck == null)
           {
               return NotFound();
           }
-            return await _context.Pickups.ToListAsync();
+            return await _context.PayTruck.ToListAsync();
         }
 
-        // GET: api/Pickups/5
+        // GET: api/tblPayTrucks/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Pickups>> GetPickups(int id)
+        public async Task<ActionResult<tblPayTruck>> GettblPayTruck(int id)
         {
-          if (_context.Pickups == null)
+          if (_context.PayTruck == null)
           {
               return NotFound();
           }
-            var pickups = await _context.Pickups.FindAsync(id);
+            var tblPayTruck = await _context.PayTruck.FindAsync(id);
 
-            if (pickups == null)
+            if (tblPayTruck == null)
             {
                 return NotFound();
             }
 
-            return pickups;
+            return tblPayTruck;
         }
 
-        // PUT: api/Pickups/5
+        // PUT: api/tblPayTrucks/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPickups(int id, Pickups pickups)
+        public async Task<IActionResult> PuttblPayTruck(int id, tblPayTruck tblPayTruck)
         {
-            if (id != pickups.RowId)
+            if (id != tblPayTruck.RowId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(pickups).State = EntityState.Modified;
+            _context.Entry(tblPayTruck).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace HackathonBackend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PickupsExists(id))
+                if (!tblPayTruckExists(id))
                 {
                     return NotFound();
                 }
@@ -80,44 +80,44 @@ namespace HackathonBackend.Controllers
             return NoContent();
         }
 
-        // POST: api/Pickups
+        // POST: api/tblPayTrucks
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Pickups>> PostPickups(Pickups pickups)
+        public async Task<ActionResult<tblPayTruck>> PosttblPayTruck(tblPayTruck tblPayTruck)
         {
-          if (_context.Pickups == null)
+          if (_context.PayTruck == null)
           {
-              return Problem("Entity set 'AppDbContext.Pickups'  is null.");
+              return Problem("Entity set 'AppDbContext.PayTruck'  is null.");
           }
-            _context.Pickups.Add(pickups);
+            _context.PayTruck.Add(tblPayTruck);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPickups", new { id = pickups.RowId }, pickups);
+            return CreatedAtAction("GettblPayTruck", new { id = tblPayTruck.RowId }, tblPayTruck);
         }
 
-        // DELETE: api/Pickups/5
+        // DELETE: api/tblPayTrucks/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePickups(int id)
+        public async Task<IActionResult> DeletetblPayTruck(int id)
         {
-            if (_context.Pickups == null)
+            if (_context.PayTruck == null)
             {
                 return NotFound();
             }
-            var pickups = await _context.Pickups.FindAsync(id);
-            if (pickups == null)
+            var tblPayTruck = await _context.PayTruck.FindAsync(id);
+            if (tblPayTruck == null)
             {
                 return NotFound();
             }
 
-            _context.Pickups.Remove(pickups);
+            _context.PayTruck.Remove(tblPayTruck);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool PickupsExists(int id)
+        private bool tblPayTruckExists(int id)
         {
-            return (_context.Pickups?.Any(e => e.RowId == id)).GetValueOrDefault();
+            return (_context.PayTruck?.Any(e => e.RowId == id)).GetValueOrDefault();
         }
     }
 }

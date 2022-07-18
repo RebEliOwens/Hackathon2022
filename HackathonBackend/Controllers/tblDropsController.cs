@@ -11,55 +11,55 @@ namespace HackathonBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DriversController : ControllerBase
+    public class tblDropsController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public DriversController(AppDbContext context)
+        public tblDropsController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Drivers
+        // GET: api/tblDrops
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Driver>>> GetDriver()
+        public async Task<ActionResult<IEnumerable<tblDrops>>> GetDrops()
         {
-          if (_context.Driver == null)
+          if (_context.Drops == null)
           {
               return NotFound();
           }
-            return await _context.Driver.ToListAsync();
+            return await _context.Drops.ToListAsync();
         }
 
-        // GET: api/Drivers/5
+        // GET: api/tblDrops/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Driver>> GetDriver(int id)
+        public async Task<ActionResult<tblDrops>> GettblDrops(int id)
         {
-          if (_context.Driver == null)
+          if (_context.Drops == null)
           {
               return NotFound();
           }
-            var driver = await _context.Driver.FindAsync(id);
+            var tblDrops = await _context.Drops.FindAsync(id);
 
-            if (driver == null)
+            if (tblDrops == null)
             {
                 return NotFound();
             }
 
-            return driver;
+            return tblDrops;
         }
 
-        // PUT: api/Drivers/5
+        // PUT: api/tblDrops/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDriver(int id, Driver driver)
+        public async Task<IActionResult> PuttblDrops(int id, tblDrops tblDrops)
         {
-            if (id != driver.DriverId)
+            if (id != tblDrops.RowId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(driver).State = EntityState.Modified;
+            _context.Entry(tblDrops).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace HackathonBackend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DriverExists(id))
+                if (!tblDropsExists(id))
                 {
                     return NotFound();
                 }
@@ -80,44 +80,44 @@ namespace HackathonBackend.Controllers
             return NoContent();
         }
 
-        // POST: api/Drivers
+        // POST: api/tblDrops
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Driver>> PostDriver(Driver driver)
+        public async Task<ActionResult<tblDrops>> PosttblDrops(tblDrops tblDrops)
         {
-          if (_context.Driver == null)
+          if (_context.Drops == null)
           {
-              return Problem("Entity set 'AppDbContext.Driver'  is null.");
+              return Problem("Entity set 'AppDbContext.Drops'  is null.");
           }
-            _context.Driver.Add(driver);
+            _context.Drops.Add(tblDrops);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDriver", new { id = driver.DriverId }, driver);
+            return CreatedAtAction("GettblDrops", new { id = tblDrops.RowId }, tblDrops);
         }
 
-        // DELETE: api/Drivers/5
+        // DELETE: api/tblDrops/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteDriver(int id)
+        public async Task<IActionResult> DeletetblDrops(int id)
         {
-            if (_context.Driver == null)
+            if (_context.Drops == null)
             {
                 return NotFound();
             }
-            var driver = await _context.Driver.FindAsync(id);
-            if (driver == null)
+            var tblDrops = await _context.Drops.FindAsync(id);
+            if (tblDrops == null)
             {
                 return NotFound();
             }
 
-            _context.Driver.Remove(driver);
+            _context.Drops.Remove(tblDrops);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool DriverExists(int id)
+        private bool tblDropsExists(int id)
         {
-            return (_context.Driver?.Any(e => e.DriverId == id)).GetValueOrDefault();
+            return (_context.Drops?.Any(e => e.RowId == id)).GetValueOrDefault();
         }
     }
 }

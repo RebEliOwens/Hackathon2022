@@ -8,12 +8,12 @@ namespace HackathonBackend.Models
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        public DbSet<Carrier> Carrier { get; set; }
-        public DbSet<Drops> Drops { get; set; }
-        public DbSet<Loads> Loads { get; set; }
-        public DbSet<PayTruck> PayTruck{ get; set; }
-        public DbSet<Pickups> Pickups { get; set; }
-        public DbSet<Driver> Driver{ get; set; }
+        public DbSet<tblCarrier> Carrier { get; set; }
+        public DbSet<tblDrops> Drops { get; set; }
+        public DbSet<tblLoads> Loads { get; set; }
+        public DbSet<tblPayTruck> PayTruck{ get; set; }
+        public DbSet<tblPickups> Pickups { get; set; }
+        public DbSet<tblDriver> Driver{ get; set; }
 
 
 

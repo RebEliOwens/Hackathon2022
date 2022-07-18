@@ -2,7 +2,7 @@
 
 namespace HackathonBackend.Models
 {
-    public class Drops
+    public class tblPickups
     {
         [Key]
         public int RowId { get; set; }
@@ -17,6 +17,6 @@ namespace HackathonBackend.Models
         public string Address2 { get; set; } = "";
         public string Zip { get; set; } = "";
 
-
+        public string Commodities { get; set; } = "";
         }
 }

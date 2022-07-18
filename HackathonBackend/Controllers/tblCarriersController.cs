@@ -11,55 +11,55 @@ namespace HackathonBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DropsController : ControllerBase
+    public class tblCarriersController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public DropsController(AppDbContext context)
+        public tblCarriersController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Drops
+        // GET: api/tblCarriers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Drops>>> GetDrops()
+        public async Task<ActionResult<IEnumerable<tblCarrier>>> GetCarrier()
         {
-          if (_context.Drops == null)
+          if (_context.Carrier == null)
           {
               return NotFound();
           }
-            return await _context.Drops.ToListAsync();
+            return await _context.Carrier.ToListAsync();
         }
 
-        // GET: api/Drops/5
+        // GET: api/tblCarriers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Drops>> GetDrops(int id)
+        public async Task<ActionResult<tblCarrier>> GettblCarrier(int id)
         {
-          if (_context.Drops == null)
+          if (_context.Carrier == null)
           {
               return NotFound();
           }
-            var drops = await _context.Drops.FindAsync(id);
+            var tblCarrier = await _context.Carrier.FindAsync(id);
 
-            if (drops == null)
+            if (tblCarrier == null)
             {
                 return NotFound();
             }
 
-            return drops;
+            return tblCarrier;
         }
 
-        // PUT: api/Drops/5
+        // PUT: api/tblCarriers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDrops(int id, Drops drops)
+        public async Task<IActionResult> PuttblCarrier(int id, tblCarrier tblCarrier)
         {
-            if (id != drops.RowId)
+            if (id != tblCarrier.CarrierId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(drops).State = EntityState.Modified;
+            _context.Entry(tblCarrier).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace HackathonBackend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DropsExists(id))
+                if (!tblCarrierExists(id))
                 {
                     return NotFound();
                 }
@@ -80,44 +80,44 @@ namespace HackathonBackend.Controllers
             return NoContent();
         }
 
-        // POST: api/Drops
+        // POST: api/tblCarriers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Drops>> PostDrops(Drops drops)
+        public async Task<ActionResult<tblCarrier>> PosttblCarrier(tblCarrier tblCarrier)
         {
-          if (_context.Drops == null)
+          if (_context.Carrier == null)
           {
-              return Problem("Entity set 'AppDbContext.Drops'  is null.");
+              return Problem("Entity set 'AppDbContext.Carrier'  is null.");
           }
-            _context.Drops.Add(drops);
+            _context.Carrier.Add(tblCarrier);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDrops", new { id = drops.RowId }, drops);
+            return CreatedAtAction("GettblCarrier", new { id = tblCarrier.CarrierId }, tblCarrier);
         }
 
-        // DELETE: api/Drops/5
+        // DELETE: api/tblCarriers/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteDrops(int id)
+        public async Task<IActionResult> DeletetblCarrier(int id)
         {
-            if (_context.Drops == null)
+            if (_context.Carrier == null)
             {
                 return NotFound();
             }
-            var drops = await _context.Drops.FindAsync(id);
-            if (drops == null)
+            var tblCarrier = await _context.Carrier.FindAsync(id);
+            if (tblCarrier == null)
             {
                 return NotFound();
             }
 
-            _context.Drops.Remove(drops);
+            _context.Carrier.Remove(tblCarrier);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool DropsExists(int id)
+        private bool tblCarrierExists(int id)
         {
-            return (_context.Drops?.Any(e => e.RowId == id)).GetValueOrDefault();
+            return (_context.Carrier?.Any(e => e.CarrierId == id)).GetValueOrDefault();
         }
     }
 }

@@ -11,55 +11,55 @@ namespace HackathonBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LoadsController : ControllerBase
+    public class tblPickupsController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public LoadsController(AppDbContext context)
+        public tblPickupsController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Loads
+        // GET: api/tblPickups
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Loads>>> GetLoads()
+        public async Task<ActionResult<IEnumerable<tblPickups>>> GetPickups()
         {
-          if (_context.Loads == null)
+          if (_context.Pickups == null)
           {
               return NotFound();
           }
-            return await _context.Loads.ToListAsync();
+            return await _context.Pickups.ToListAsync();
         }
 
-        // GET: api/Loads/5
+        // GET: api/tblPickups/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Loads>> GetLoads(int id)
+        public async Task<ActionResult<tblPickups>> GettblPickups(int id)
         {
-          if (_context.Loads == null)
+          if (_context.Pickups == null)
           {
               return NotFound();
           }
-            var loads = await _context.Loads.FindAsync(id);
+            var tblPickups = await _context.Pickups.FindAsync(id);
 
-            if (loads == null)
+            if (tblPickups == null)
             {
                 return NotFound();
             }
 
-            return loads;
+            return tblPickups;
         }
 
-        // PUT: api/Loads/5
+        // PUT: api/tblPickups/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLoads(int id, Loads loads)
+        public async Task<IActionResult> PuttblPickups(int id, tblPickups tblPickups)
         {
-            if (id != loads.Id)
+            if (id != tblPickups.RowId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(loads).State = EntityState.Modified;
+            _context.Entry(tblPickups).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace HackathonBackend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LoadsExists(id))
+                if (!tblPickupsExists(id))
                 {
                     return NotFound();
                 }
@@ -80,44 +80,44 @@ namespace HackathonBackend.Controllers
             return NoContent();
         }
 
-        // POST: api/Loads
+        // POST: api/tblPickups
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Loads>> PostLoads(Loads loads)
+        public async Task<ActionResult<tblPickups>> PosttblPickups(tblPickups tblPickups)
         {
-          if (_context.Loads == null)
+          if (_context.Pickups == null)
           {
-              return Problem("Entity set 'AppDbContext.Loads'  is null.");
+              return Problem("Entity set 'AppDbContext.Pickups'  is null.");
           }
-            _context.Loads.Add(loads);
+            _context.Pickups.Add(tblPickups);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLoads", new { id = loads.Id }, loads);
+            return CreatedAtAction("GettblPickups", new { id = tblPickups.RowId }, tblPickups);
         }
 
-        // DELETE: api/Loads/5
+        // DELETE: api/tblPickups/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLoads(int id)
+        public async Task<IActionResult> DeletetblPickups(int id)
         {
-            if (_context.Loads == null)
+            if (_context.Pickups == null)
             {
                 return NotFound();
             }
-            var loads = await _context.Loads.FindAsync(id);
-            if (loads == null)
+            var tblPickups = await _context.Pickups.FindAsync(id);
+            if (tblPickups == null)
             {
                 return NotFound();
             }
 
-            _context.Loads.Remove(loads);
+            _context.Pickups.Remove(tblPickups);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LoadsExists(int id)
+        private bool tblPickupsExists(int id)
         {
-            return (_context.Loads?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Pickups?.Any(e => e.RowId == id)).GetValueOrDefault();
         }
     }
 }

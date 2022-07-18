@@ -2,7 +2,7 @@
 
 namespace HackathonBackend.Models
 {
-    public class PayTruck
+    public class tblPayTruck
     {
         [Key]
         public int RowId { get; set; }
@@ -12,7 +12,7 @@ namespace HackathonBackend.Models
         public int Rate { get; set; }
 
         public int CarrierId { get; set; }
-        public virtual Carrier? Carrier { get; set; } = null!;
+        public virtual tblCarrier? Carrier { get; set; } = null!;
 
 
         }

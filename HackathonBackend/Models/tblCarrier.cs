@@ -1,12 +1,14 @@
-﻿using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 
 
 namespace HackathonBackend.Models
 {
 
-    public class Carrier
+    public class tblCarrier
     {
+        [Key]
         public int CarrierId { get; set; }
         public string CarrierName { get; set; } = "";
         public string MCNumber { get; set; } = "";

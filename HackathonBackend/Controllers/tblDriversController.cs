@@ -11,55 +11,55 @@ namespace HackathonBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CarriersController : ControllerBase
+    public class tblDriversController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public CarriersController(AppDbContext context)
+        public tblDriversController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Carriers
+        // GET: api/tblDrivers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Carrier>>> GetCarrier()
+        public async Task<ActionResult<IEnumerable<tblDriver>>> GetDriver()
         {
-          if (_context.Carrier == null)
+          if (_context.Driver == null)
           {
               return NotFound();
           }
-            return await _context.Carrier.ToListAsync();
+            return await _context.Driver.ToListAsync();
         }
 
-        // GET: api/Carriers/5
+        // GET: api/tblDrivers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Carrier>> GetCarrier(int id)
+        public async Task<ActionResult<tblDriver>> GettblDriver(int id)
         {
-          if (_context.Carrier == null)
+          if (_context.Driver == null)
           {
               return NotFound();
           }
-            var carrier = await _context.Carrier.FindAsync(id);
+            var tblDriver = await _context.Driver.FindAsync(id);
 
-            if (carrier == null)
+            if (tblDriver == null)
             {
                 return NotFound();
             }
 
-            return carrier;
+            return tblDriver;
         }
 
-        // PUT: api/Carriers/5
+        // PUT: api/tblDrivers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCarrier(int id, Carrier carrier)
+        public async Task<IActionResult> PuttblDriver(int id, tblDriver tblDriver)
         {
-            if (id != carrier.CarrierId)
+            if (id != tblDriver.DriverId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(carrier).State = EntityState.Modified;
+            _context.Entry(tblDriver).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace HackathonBackend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CarrierExists(id))
+                if (!tblDriverExists(id))
                 {
                     return NotFound();
                 }
@@ -80,44 +80,44 @@ namespace HackathonBackend.Controllers
             return NoContent();
         }
 
-        // POST: api/Carriers
+        // POST: api/tblDrivers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Carrier>> PostCarrier(Carrier carrier)
+        public async Task<ActionResult<tblDriver>> PosttblDriver(tblDriver tblDriver)
         {
-          if (_context.Carrier == null)
+          if (_context.Driver == null)
           {
-              return Problem("Entity set 'AppDbContext.Carrier'  is null.");
+              return Problem("Entity set 'AppDbContext.Driver'  is null.");
           }
-            _context.Carrier.Add(carrier);
+            _context.Driver.Add(tblDriver);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCarrier", new { id = carrier.CarrierId }, carrier);
+            return CreatedAtAction("GettblDriver", new { id = tblDriver.DriverId }, tblDriver);
         }
 
-        // DELETE: api/Carriers/5
+        // DELETE: api/tblDrivers/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCarrier(int id)
+        public async Task<IActionResult> DeletetblDriver(int id)
         {
-            if (_context.Carrier == null)
+            if (_context.Driver == null)
             {
                 return NotFound();
             }
-            var carrier = await _context.Carrier.FindAsync(id);
-            if (carrier == null)
+            var tblDriver = await _context.Driver.FindAsync(id);
+            if (tblDriver == null)
             {
                 return NotFound();
             }
 
-            _context.Carrier.Remove(carrier);
+            _context.Driver.Remove(tblDriver);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CarrierExists(int id)
+        private bool tblDriverExists(int id)
         {
-            return (_context.Carrier?.Any(e => e.CarrierId == id)).GetValueOrDefault();
+            return (_context.Driver?.Any(e => e.DriverId == id)).GetValueOrDefault();
         }
     }
 }
