@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using HackathonBackend.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
